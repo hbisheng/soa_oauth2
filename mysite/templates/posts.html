@@ -1,0 +1,18 @@
+<h1>SOA Course Assignment</h1>
+{% if user %}
+Avatar:  <img src={{user.avatar_large}} width="128" height="128" />  <br>
+User Name: {{ user.screen_name }} <br>
+Loc : {{user.location}}   <br>
+Description: {{user.description}} <br>
+{% endif %}
+<br>
+Keywords:
+{% for key in keywords %}
+    <a href = "../posts/{{user.id}}?keywords={{key}}"><button type = "button"><h3>{{key}}</h3></button></a>
+{% endfor %}
+<hr>
+
+<h1> Recent 100 Posts </h1>{% if cur_key %}<p>(Filter Keyword: {{cur_key}})</p>{% endif %}
+{%  for status in statuses %}
+    <p>{{forloop.counter}}: {{status.text}}</p>
+{% endfor %}

@@ -1,0 +1,6 @@
+<h1>User ID lists</h1>
+<h4>Click To View Their Statuses</h4>
+<hr>
+{% for u in users %}
+    <p>User {{forloop.counter}}. <a href = '../posts/{{u.uid}}'>{{ u.uid }}</a></p>
+{% endfor %}
